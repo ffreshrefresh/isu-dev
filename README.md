@@ -35,3 +35,11 @@ Bu proje, **port tabanlı güvenlik duvarı yönetimi** için bir araç sağlar.
    ```bash
    git clone https://github.com/kullaniciadi/port-firewall-management.git
    cd port-firewall-management
+2. Gereksinimleri indirin:
+   pip install -r requirements.txt
+   
+3. Gerekli Sistem Araçları: iptables ve tcpdump yüklü değilse şu komutu çalıştırın:
+   sudo apt install iptables tcpdump
+   
+4. Uygulamayı Çalıştırın:,
+   sudo python3 autoport.py
