@@ -1,0 +1,19 @@
+Kullanım Kılavuzu
+=================
+
+1. Programı çalıştırmak için komut satırında aşağıdaki komutlardan birini çalıştırın:
+
+    py autoport.py
+    pip3 autoport.py
+    python autoport.py
+
+2. Port açma ve kapatma:
+   Port açma işlemi için 1. seçeneği seçin ve açmak istediğin port numarasını yazın
+   Port kapatma işlemi için 2. seçeneği seçin ve kapatmak istediğin port numarasını yazın
+
+
+2. Portların zamanlı açılması ve kapatılması:
+   - Gerekli saatleri belirleyerek menüdeki 3. seçeneği kullanabilirsiniz.
+
+3. Log dosyaları:
+   - Trafik logları `port_logs.json` dosyasında tutulur.

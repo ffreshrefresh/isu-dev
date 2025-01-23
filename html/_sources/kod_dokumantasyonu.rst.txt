@@ -1,0 +1,79 @@
+Kod Dokümantasyonu
+===================
+
+Bu bölüm, projede kullanılan Python kodlarının detaylarını içerir. Her bir fonksiyonun işlevi, parametreleri ve örnek kullanımı açıklanmıştır.
+
+.. automodule:: autoport
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Fonksiyonlar
+------------
+
+### log_event(event)
+- **Açıklama:** Loglama sistemi için JSON formatında bir kayıt oluşturur.
+- **Parametreler:**
+  - `event` (str): Loglanacak olay bilgisi.
+- **Örnek Kullanım:**
+  .. code-block:: python
+
+     log_event("Port 8080 açıldı.")
+
+---
+
+### check_port_status(port)
+- **Açıklama:** Belirtilen portun açık olup olmadığını kontrol eder.
+- **Parametreler:**
+  - `port` (int): Kontrol edilecek port numarası.
+- **Örnek Kullanım:**
+  .. code-block:: python
+
+     if check_port_status(8080):
+         print("Port açık.")
+
+---
+
+### open_port(port)
+- **Açıklama:** Belirtilen portu güvenlik duvarında açar.
+- **Parametreler:**
+  - `port` (int): Açılacak port numarası.
+- **Örnek Kullanım:**
+  .. code-block:: python
+
+     open_port(8080)
+
+---
+
+### close_port(port)
+- **Açıklama:** Belirtilen portu güvenlik duvarında kapatır.
+- **Parametreler:**
+  - `port` (int): Kapatılacak port numarası.
+- **Örnek Kullanım:**
+  .. code-block:: python
+
+     close_port(8080)
+
+---
+
+### scheduled_port(port, start_time, end_time)
+- **Açıklama:** Belirtilen portu belirlenen saat aralığında açar ve kapatır.
+- **Parametreler:**
+  - `port` (int): Port numarası.
+  - `start_time` (str): Portun açılacağı saat (HH:MM formatında).
+  - `end_time` (str): Portun kapanacağı saat (HH:MM formatında).
+- **Örnek Kullanım:**
+  .. code-block:: python
+
+     scheduled_port(8080, "08:00", "18:00")
+
+---
+
+### log_port_traffic(port)
+- **Açıklama:** Porta yapılan tüm istekleri loglar.
+- **Parametreler:**
+  - `port` (int): Loglanacak port numarası.
+- **Örnek Kullanım:**
+  .. code-block:: python
+
+     log_port_traffic(8080)

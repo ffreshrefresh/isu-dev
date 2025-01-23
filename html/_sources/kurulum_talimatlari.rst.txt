@@ -1,0 +1,18 @@
+Kurulum Talimatları
+===================
+
+1. Gereklilikler:
+   - Python 3.6 veya üzeri
+   - `iptables` kurulu
+   - `tcpdump` kurulu
+
+2. Kurulum Adımları:
+   - Gerekli Python kütüphanelerini yükleyin:
+     ```
+     pip install -r requirements.txt
+     ```
+
+   - `iptables` ve `tcpdump` kurulu değilse kurun:
+     ```
+     sudo apt install iptables tcpdump
+     ```

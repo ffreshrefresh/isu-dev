@@ -1,0 +1,128 @@
+Teknik Dokümantasyon
+=====================
+
+Bu dokümantasyon, projenin teknik detaylarını, kullanılan araçları ve tasarım kararlarını açıklamaktadır.
+
+Proje Hedefi
+-------------
+
+Bu proje, port tabanlı güvenlik duvarı yönetimi sağlayarak:
+1. Portların açılmasını ve kapatılmasını kolaylaştırmayı,
+2. Portların zamanlama ile yönetilmesini sağlamayı,
+3. Trafik loglama ile güvenlik izleme imkanı sunmayı hedefler.
+
+---
+
+Kullanılan Teknolojiler
+------------------------
+
+- **Python 3.9 veya üzeri**:
+  - Proje geliştirme dili.
+- **Sphinx**:
+  - Proje dokümantasyonu için kullanılan araç.
+- **iptables**:
+  - Port yönetimi için kullanılan güvenlik duvarı aracı.
+- **tcpdump**:
+  - Port trafiğini loglama için kullanılan araç.
+- **JSON**:
+  - Trafik ve sistem loglarının tutulduğu format.
+
+---
+
+Mimari Tasarım
+---------------
+
+Projenin temel bileşenleri şunlardır:
+
+1. **Kullanıcı Menüsü**:
+   - Port açma, kapama ve zamanlama gibi temel işlevler için kullanıcıya bir arayüz sunar.
+
+2. **Port Yönetim Sistemi**:
+   - `iptables` kullanarak port açma ve kapama işlemlerini gerçekleştirir.
+   - `scheduled_port` fonksiyonu ile portları belirli saatlerde açar veya kapatır.
+
+3. **Loglama Sistemi**:
+   - Tüm loglar `port_logs.json` dosyasına JSON formatında kaydedilir.
+   - Port trafiğini loglamak için `tcpdump` kullanılır.
+
+4. **Güvenlik Katmanı**:
+   - İstenmeyen bağlantıları tespit eder ve raporlar.
+   - Limitli port trafiği için `iptables` ile ek güvenlik kuralları uygular.
+
+---
+
+Proje Fonksiyonları
+--------------------
+
+1. **Port Açma/Kapatma**:
+   - Kullanıcı bir port açmak istediğinde, öncelikle portun durumu kontrol edilir.
+   - Eğer port açık değilse, `open_port()` fonksiyonu ile port açılır. Kapatmak için `close_port()` kullanılır.
+
+2. **Zamanlı Port Yönetimi**:
+   - Kullanıcı, portların belirli saat aralıklarında açık veya kapalı olmasını istediğinde `scheduled_port()` fonksiyonu devreye girer.
+
+3. **Trafik Loglama**:
+   - `log_port_traffic()` ile port üzerinden geçen her trafik loglanır.
+
+---
+
+Kurulum Adımları
+-----------------
+
+1. **Gereksinimler:**
+   - Python 3.9 veya üzeri
+   - `iptables` ve `tcpdump` araçları yüklü olmalıdır.
+
+2. **Kurulum:**
+   - Gerekli kütüphaneleri yüklemek için:
+     ```
+     pip install -r requirements.txt
+     ```
+   - `iptables` ve `tcpdump` kurulu değilse şu komutları çalıştırın:
+     ```
+     sudo apt install iptables tcpdump
+     ```
+
+---
+
+Sistem Loglama Detayları
+------------------------
+
+- **Log Formatı:** 
+  - Trafik ve sistem olayları, `port_logs.json` dosyasına şu şekilde kaydedilir:
+    ```json
+    {
+        "timestamp": "2025-01-23 14:30:00",
+        "event": "Port 8080 açıldı."
+    }
+    ```
+
+- **Log Dosyasının Yolu:**
+  - Loglar projenin çalıştığı dizindeki `port_logs.json` dosyasına yazılır.
+
+---
+
+Güvenlik Önlemleri
+-------------------
+
+1. **Trafik Sınırlaması**:
+   - `iptables` kullanılarak belirli portlara gelen bağlantılar sınırlanır.
+
+2. **İstenmeyen Trafik Engelleme**:
+   - Şüpheli bağlantılar, trafik analizi ile tespit edilip reddedilir.
+
+---
+
+Test Süreci
+-----------
+
+1. **Fonksiyon Testleri:**
+   - Her bir fonksiyon, kullanıcıdan alınan girişlere göre kontrol edilmiştir.
+   - Örneğin:
+     - Port açma testinde, port açık değilse açılır ve `iptables` kuralları doğrulanır.
+
+2. **Zamanlı Port Testleri:**
+   - `scheduled_port()` fonksiyonu, portun belirtilen saatlerde açılıp kapandığını kontrol eder.
+
+3. **Trafik Loglama Testleri:**
+   - `tcpdump` kullanılarak port trafiği loglanır ve logların doğru formatta kaydedildiği kontrol edilir.

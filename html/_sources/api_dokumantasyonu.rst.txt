@@ -1,0 +1,18 @@
+API Dokümantasyonu
+===================
+
+Bu proje şu API özelliklerini içerir:
+
+1. `log_event(event)`
+   - Loglama sistemini çalıştırır.
+
+2. `check_port_status(port)`
+   - Port durumunu kontrol eder.
+
+3. `open_port(port)`
+   - Belirtilen portu açar.
+
+4. `close_port(port)`
+   - Belirtilen portu kapatır.
+
+Diğer tüm API detayları için kod dosyasına başvurabilirsiniz.
