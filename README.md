@@ -43,3 +43,9 @@ Bu proje, **port tabanlı güvenlik duvarı yönetimi** için bir araç sağlar.
    
 4. Uygulamayı Çalıştırın:,
    sudo python3 autoport.py
+   
+## 🐐 Proje Ekibi
+
+Engin Can Ünlüer - 2320191039
+
+Ferhat Civelek - 2320191053
