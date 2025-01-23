@@ -1,51 +1,56 @@
-# Port Firewall Management
 
-Bu proje, **port tabanlı güvenlik duvarı yönetimi** için bir araç sağlar. Kullanıcılar port açma, kapama, zamanlama ve trafik loglama gibi işlemleri kolaylıkla gerçekleştirebilir. Araç, port güvenliğini artırmak için ek önlemler sunar ve loglama sistemiyle işlemleri kayıt altına alır.
+# 🚀 Port Firewall Menu Projesi
 
----
+## 1. Projenin Amacı ve Genel İşleyişi
+Port Firewall Menu, port tabanlı güvenlik duvarı yönetimini kullanıcı dostu bir menü sistemiyle kolaylaştırmayı hedefler. 
+Kullanıcılar port açma, kapatma ve zamanlama işlemlerini hızlı bir şekilde gerçekleştirebilir. 
+Ayrıca, portlar üzerindeki trafik loglanarak güvenlik amacıyla saklanır.
 
-## 🚀 Özellikler
+## 🐐 2. Takım Üyeleri
+- **Engin Can Ünlüer** - 2320191039
+- **Ferhat Civelek** - 2320191053
 
-- **Port Yönetimi:**
-  - Belirtilen portları güvenlik duvarında açma ve kapatma.
-  - Açık portların kontrol edilmesi.
+## 3. Kullanılan Kütüphaneler ve Versiyonları
+- Python 3.9 veya üzeri
+- subprocess (standart kütüphane)
+- datetime (standart kütüphane)
+- json (standart kütüphane)
+- threading (standart kütüphane)
 
-- **Zamanlama:**
-  - Portların belirli zaman aralıklarında otomatik olarak açılması ve kapatılması.
+## 4. Gerekli Araçlar ve Kurulum Gereksinimleri
+- **İşletim Sistemi:** Linux
+- **Python:** 3.9 veya üzeri
+- **Gerekli Paketler ve Araçlar:**
+  - iptables
+  - tcpdump
 
-- **Trafik Loglama:**
-  - Port üzerinden gelen tüm trafik `port_logs.json` dosyasına loglanır.
+## 5. Zorunlu Çalışma Parametreleri
+- **Port Numarası:** Açılacak, kapatılacak veya zamanlanacak port numarası belirtilmelidir.
+- **Zaman Parametreleri:** Zamanlama özelliği için portun açılacağı ve kapanacağı saatler belirtilmelidir.
 
-- **Güvenlik:**
-  - Trafik sınırlamaları ve port tarama tespiti.
+## 6. Opsiyonel Parametreler ve Kullanımları
+- **Trafik Loglama:** Varsayılan olarak aktiftir. İstenirse bu özellik devre dışı bırakılabilir.
+- **Menü Seçenekleri:** Yalnızca belirli işlemler seçilebilir (örneğin, sadece port açma işlemi).
 
----
-
-## 🛠️ Kurulum
-
-### Gerekli Araçlar ve Teknolojiler:
-- **Python 3.9 veya üzeri**
-- **iptables** (Linux sistemlerde güvenlik duvarı yönetimi için)
-- **tcpdump** (Port trafiğini loglamak için)
-
-### Adımlar:
-
-1. **Proje Deposu:**
-   Depoyu klonlayın:
+## 🛠️ 7. Kurulum ve Çalıştırma Talimatları
+1. **Depoyu Klonlayın:**
    ```bash
-   git clone https://github.com/kullaniciadi/port-firewall-management.git
-   cd port-firewall-management
-2. Gereksinimleri indirin:
+   git clone https://github.com/kullaniciadi/port-firewall-menu.git
+   cd port-firewall-menu
+   ```
+
+2. **Gerekli Python Kütüphanelerini Yükleyin:**
+   ```bash
    pip install -r requirements.txt
-   
-3. Gerekli Sistem Araçları: iptables ve tcpdump yüklü değilse şu komutu çalıştırın:
-   sudo apt install iptables tcpdump
-   
-4. Uygulamayı Çalıştırın:,
-   sudo python3 autoport.py
-   
-## 🐐 Proje Ekibi
+   ```
 
-Engin Can Ünlüer - 2320191039
+3. **Projeyi Çalıştırın:**
+   ```bash
+   python3 autoport.py
+   ```
 
-Ferhat Civelek - 2320191053
+4. **Menüden İşlemleri Seçin:**
+   - Port açma
+   - Port kapatma
+   - Zamanlı port yönetimi
+   - Trafik loglarını inceleme
